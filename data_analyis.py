@@ -37,10 +37,18 @@ def analyze_data(data):
         plt.ylabel('Count')
         plt.show()
 
+
+def missing_values(file_path):
+	data = pd.read_excel(file_path)
+	missing_values = data.isnull().sum()
+	print(missing_values)
+
+
 def main():
     file_path = input("Enter the path to the CSV file: ")
     data = load_data(file_path)
     analyze_data(data)
+    missing_values(file_path)
 
 if __name__ == "__main__":
     main()
